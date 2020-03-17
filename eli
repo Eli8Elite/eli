@@ -1,0 +1,23 @@
+import datetime
+from playsound import playsound
+
+H, M, am_pm, music_no = input("What time do you want the alarm to ring? and music? ").split()
+alarm_H = int(H)
+alarm_M = int(M)
+
+if (am_pm == "pm" or am_pm == "PM"):
+    alarm_H = alarm_H + 12
+
+print("Alarm wake up time: " + H + ":" + M + " " + am_pm)
+while(True):
+    if (int(alarm_H) == datetime.datetime.now().hour and
+        int(alarm_M) == datetime.datetime.now().minute):
+
+        print("Alarm wake up")
+        if (music_no == "1"):
+            playsound('Dance Monkey.mp3')
+        elif (music_no == "2"):
+            playsound('Wedding March.mp3')
+        else:
+            print("Silent")
+        break
